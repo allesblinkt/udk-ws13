@@ -20,6 +20,14 @@ class XyPlotter {
     storageY[pointer] = theValueY;  // store
   }
 
+  /** Nulls all values */
+  void clear() {
+    for (int i = 0; i < storageX.length; i++) {
+      storageX[i] = 0;
+      storageY[i] = 0;
+    }
+  }
+
   /** Draws the plotter */
   void draw(float theX, float theY, float theWidth, float theHeight) {
     noFill();
