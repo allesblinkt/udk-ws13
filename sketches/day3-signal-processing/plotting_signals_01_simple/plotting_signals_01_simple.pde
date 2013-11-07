@@ -4,7 +4,7 @@ float storage[] = new float[100];
 int pointer = 0;
 
 void setup() {
-  size(600, 300, P2D);
+  size(600, 300);
   frameRate(60);
 }
 

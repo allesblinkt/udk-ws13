@@ -4,7 +4,7 @@
 SignalPlotter plotter;
 
 void setup() {
-  size(600, 300, P2D);
+  size(600, 300);
   frameRate(60);
   
   plotter = new SignalPlotter(100);  // history of 100 values...
