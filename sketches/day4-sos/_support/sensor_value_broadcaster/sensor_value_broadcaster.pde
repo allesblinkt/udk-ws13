@@ -50,7 +50,7 @@ void draw() {
     }
   }
 
-  float transformedValue = constrain(map(rawValue, 1024, 500, 0.0, 1.0), 0.0, 1.0);
+  float transformedValue = constrain(map(rawValue, 900, 400, 0.0, 1.0), 0.0, 1.0);
 
   /* Draw */
   textFont(font);
@@ -59,9 +59,11 @@ void draw() {
   text("Raw Sensor Value: " + rawValue, 20, height - 40);
   text("Transformed Sensor Value: " + nf(transformedValue, 0, 3), 20, height - 20);
 
-  float y = map(transformedValue, 0.0, 1.0, height, 0); 
+  float y = map(transformedValue, 0.0, 1.0, height * 0.5, 0); 
 
-  ellipse(width * 0.5, y, 20, 20);
+  fill(255);
+  noStroke();
+  ellipse(width, y, 15, 15);
 
   plotter.put(transformedValue);
   plotter.draw(0, 0, width, height);
