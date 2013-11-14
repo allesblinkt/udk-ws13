@@ -3,6 +3,9 @@
  * The current value will be stored in sensorValue.
  * This also keeps track of the minimum and maximum values.
  *
+ * This sketch needs the OscP5 library:
+ * http://www.sojamo.de/libraries/oscP5/
+ * 
  * Press any key to reset the min and max values.
  */
 

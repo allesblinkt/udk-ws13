@@ -1,6 +1,9 @@
 /**
   * Receives the sensor value sent over network.
   * The current value will be stored in sensorValue.
+  *
+  * This sketch needs the OscP5 library:
+  * http://www.sojamo.de/libraries/oscP5/
   */
 
 import oscP5.*;
