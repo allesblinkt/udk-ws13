@@ -31,7 +31,7 @@ void draw() {
   if (level > peak) {   // set
     peak = level;   
   } else {  // decay
-    peak = 0.96 * peak + 0.1 * 0.0; 
+    peak = 0.99 * peak + 0.01 * 0.0; 
   }
   
   noStroke();
