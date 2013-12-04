@@ -24,13 +24,13 @@ void setup() {
   distributeCircles(circles, new PVector(width * 0.5, height * 0.5), 10);
 }
 
-ArrayList<Circle> distributeCircles(ArrayList<Circle> theCircles, PVector theCenter, float theMargin) {
-  ArrayList<Circle> placedCircles = new ArrayList<Circle>();
-  
+void distributeCircles(ArrayList<Circle> theCircles, PVector theCenter, float theMargin) { 
   /* Bail out */
   if (theCircles.size() == 0) {
-     return placedCircles;  
+     return;  
   }
+  
+  ArrayList<Circle> placedCircles = new ArrayList<Circle>();
   
   /* Find the smallest diameter to try with something sensible */
   float[] diameters = new float[theCircles.size()];
@@ -93,9 +93,7 @@ ArrayList<Circle> distributeCircles(ArrayList<Circle> theCircles, PVector theCen
         }
       }
     }
-  }
-    
-  return placedCircles;
+  }    
 }
 
 void draw() {
