@@ -1,3 +1,5 @@
+import processing.pdf.*;
+
 /**
  * For PDF output one pixel unit in Processing becomes one point in the PDF.
  * Those are the same points that also exist in Illustrator.
@@ -17,31 +19,52 @@ boolean doRecord = false;
 void setup() {
   int widthPt = int(mmToPt(210));
   int heightPt = int(mmToPt(297));
+  
   size(widthPt, heightPt);
+  smooth();  
 }
 
 
 void draw() {
-
+  background(255);  // paper is white
+  
+  /* Start recording */
   if (doRecord) {
     String recordFile = "output-" + timestamp() + ".pdf";
-    beginRecord(recordFile, PDF);
+    println("Recording graphics to " + recordFile);
+    
+    beginRecord(PDF, recordFile);
+  }
+    
+  noFill();
+  
+  int n = int(map(mouseX, 0, width, 0, 400));
+  
+  for (int i = 0; i < n; i++) {
+    float y = map(i, n - 1, 0, 0, height);
+    float x = map(i, 0, n - 1, 0, width);
+    float grey = map(i, n - 1, 0, 0, 255);
+    
+    stroke(grey);
+    line(0, y, x, 0);  
   }
 
-
+  /* End recording */
   if (doRecord) {
     endRecord();
     doRecord = false;
   }
 
-
-  /* Do not write our debug output to PDF */
+  /* Do not write this stuff */
+  stroke(128);
+  ellipse(width - 50, height - 50, 100, 100);  
 }
 
 
 void keyPressed() {
   if (key == 'r') {
     doRecord = true;
+    println("Recording done.");
   }
 }
 
