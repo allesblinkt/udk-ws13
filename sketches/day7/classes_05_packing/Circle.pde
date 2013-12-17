@@ -15,7 +15,7 @@ class Circle {
     fill(255);
     ellipse(position.x, position.y, diameter, diameter);
     
-    float innerDiameter = map(sin(speed * millis() * 0.002f), -1, 1, diameter * 0.25, diameter * 0.75);
+    float innerDiameter = map(sin(speed * millis() * 0.002), -1, 1, diameter * 0.25, diameter * 0.75);
         
     fill(255, 69, 0);
     ellipse(position.x, position.y, innerDiameter, innerDiameter);

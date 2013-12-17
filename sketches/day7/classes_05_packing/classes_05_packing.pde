@@ -45,7 +45,7 @@ void distributeCircles(ArrayList<Circle> theCircles, PVector theCenter, float th
 
   /* Initial numbers */
   int thetaSteps = 111;
-  float radiusIncrement = smallestDiameter * 0.1f;
+  float radiusIncrement = smallestDiameter * 0.1;
   
   float searchRadius = 0;
   
@@ -58,7 +58,7 @@ void distributeCircles(ArrayList<Circle> theCircles, PVector theCenter, float th
 
     /* Loop as long as we haven't found something */
     while (!foundSpot) {
-      float theta = tries / (thetaSteps * 0.5) * TWO_PI;
+      float theta = tries / float(thetaSteps) * TWO_PI;   // need to convert theta steps here from an int, otherwise the division would also be an int...
             
       float x = cos(theta) * searchRadius;
       float y = -sin(theta) * searchRadius;
